@@ -2,12 +2,25 @@ spring:
   application:
     name: config-server
   cloud:
-    server:
-      git:
-        # ????? ?? ? ??
-        uri: https://github.com/Spharos-Nu/goods-goods-duck-config.git
-        # ? ??? ??? ??
-        default-label: main
+    config:
+      server:
+        git:
+          uri: git@github.com:Spharos-Nu/goods-goods-duck-config.git
+          default-label: main
+          ignore-local-ssh-settings: true
+          private-key: ${CONFIG_PRIVATE_KEY}
+          strictHostKeyChecking: false
+          host-key: ${HOST_KEY}
+          host-key-algorithm: ecdsa-sha2-nistp256
 
 server:
   port: 8888
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, refresh
+  endpoint:
+    health:
+      show-details: always
