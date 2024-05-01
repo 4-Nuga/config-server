@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    server:
+      git:
+        # ????? ?? ? ??
+        uri: https://github.com/Spharos-Nu/goods-goods-duck-config.git
+        # ? ??? ??? ??
+        default-label: main
+
+server:
+  port: 8888
