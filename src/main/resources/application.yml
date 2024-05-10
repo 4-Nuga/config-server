@@ -8,10 +8,15 @@ spring:
           uri: git@github.com:Spharos-Nu/goods-goods-duck-config.git
           default-label: main
           ignore-local-ssh-settings: true
-          private-key: ${CONFIG_PRIVATE_KEY}
+          private-key: |
+            -----BEGIN EC PRIVATE KEY-----
+            ${CONFIG_PRIVATE_KEY}
+            -----END EC PRIVATE KEY-----
           strictHostKeyChecking: false
           host-key: ${HOST_KEY}
           host-key-algorithm: ecdsa-sha2-nistp256
+#        encrypt:
+#          enabled: false
 
 server:
   port: 8888
